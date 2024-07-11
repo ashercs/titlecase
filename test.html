@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracklist Title Case Converter</title>
+    <script src="title_case.js"></script>
+</head>
+<body>
+    <h2>Tracklist Title Case Converter</h2>
+    <p><strong>Enter Tracklist:</strong></p>
+    <textarea id="tracklistInput" rows="10" cols="50" oninput="convertTracklist()"></textarea><br>
+    
+    <br><br>
+    <p><strong>Converted Tracklist:</strong></p>
+    <textarea id="convertedOutput" rows="10" cols="50" readonly></textarea>
+    <br>
+    <button class="copy-button" onclick="copyToClipboard()">Copy Text</button>
+    
+    <script>
+        function convertTracklist() {
+            var inputText = document.getElementById('tracklistInput').value;
+            var convertedText = toTitleCase(inputText);
+            console.log(inputText)
+            console.log(convertedText)
+            document.getElementById('convertedOutput').value = convertedText;
+        }
+
+        function copyToClipboard() {
+            var textarea = document.getElementById("convertedOutput");
+            textarea.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+</html>
